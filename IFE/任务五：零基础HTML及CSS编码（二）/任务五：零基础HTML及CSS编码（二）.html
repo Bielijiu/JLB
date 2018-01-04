@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务五：零基础HTML及CSS编码（二）</title>
+	<style>
+		div{
+			box-sizing:border-box;
+		}
+		#head{
+			height:50px;
+			width: auto;
+			background-color: #413A3A;
+		}
+		#logo{
+			color: #BCC100;
+			font-size: 30px;
+			line-height: 50px;
+			margin-left: 20px;
+			float: left;
+		}
+		#nav{
+			float:right;
+			height: 50px;
+			width: auto;
+			margin-right: 20px;
+		}
+	/*	ul > li{
+			list-style-type: none;
+			display: inline;
+			color: aliceblue;
+			margin-right: 20px;
+		}*/
+		.li_1{
+			list-style-type: none;
+			display: inline;
+			color: aliceblue;
+			margin-right: 20px;
+		}
+		.li_2{
+			list-style-type: none;
+			/*display: inline;*/
+			color:#000000;
+			margin-right: 20px;
+		}
+		#main{
+			padding: 20px 340px 20px 20px;
+			width: auto;
+			height: auto;
+			background-color: #eee;
+			position: relative;
+		}
+		#main_left{
+			/*padding: 20px;*/
+			float: left;
+			width: 100%;
+			position: relative;
+			/*background-color: #FFFFFF;*/
+			/*border-right: 2px solid #928E8E;
+			border-bottom: 2px solid #928E8E;
+			border-top: 0.5px solid #DDDADA;
+			border-left: 0.5px solid #DDDADA;*/
+		}
+		#main_right{
+			padding: 20px;
+			float: right;
+			background-color: #FFFFFF;
+			width: 300px;
+			height: auto;
+			margin-left: -340px;
+			right: -320px;
+			position: relative;
+			border-right: 2px solid #928E8E;
+			border-bottom: 2px solid #928E8E;
+			border-top: 0.5px solid #DDDADA;
+			border-left: 0.5px solid #DDDADA;
+		}
+		#clear{
+			clear: both;
+		}
+		.content{
+			padding: 20px;
+			background-color: #FFFFFF;
+			border-right: 2px solid #928E8E;
+			border-bottom: 2px solid #928E8E;
+			border-top: 0.5px solid #DDDADA;
+			border-left: 0.5px solid #DDDADA;
+			margin-bottom: 20px;
+		}
+		/*table tr th{
+			border: 1px solid #B0A9A9;
+		}*/
+		.table{
+			width: 100%;
+			border: 1px solid #B0A9A9;
+		}
+	/*	.tr{
+			width: 100%;
+		}*/
+		.th{
+			height: 30px;
+			border: 1px solid #B0A9A9;
+		}
+		#foot{
+			width:auto;
+			height: 50px;
+			background-color: #413A3A;
+			text-align: center;
+			color: aliceblue;
+			line-height: 50px;
+		}
+		#right_title{
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			border-right: 2px solid #928E8E;
+			border-bottom: 2px solid #928E8E;
+			border-top: 0.5px solid #DDDADA;
+			border-left: 0.5px solid #DDDADA;
+			margin-bottom: 10px;
+		}
+		.input_1{
+			font-size: 12px;
+			width: 30%;
+			text-align: right;
+			line-height: 30px;
+		}
+		.input_2{
+			font-size: 12px;
+			width: 70%;
+			text-align: left;
+			line-height: 30px;
+		}
+		.input_3{
+			font-size: 12px;
+			width: 100%;
+			text-align: center;
+			line-height: 30px;
+		}
+		.input_4{
+			font-size: 12px;
+			width: 30%;
+			text-align:right;
+			height: 50px;
+		}
+		.input_5{
+			font-size: 12px;
+			width: 100%;
+			text-align:center;
+			height: 30px;
+		}
+		.span_1{
+			color:#716A6A;
+			font-size: 11px;
+		}
+		#th_1{
+			position: relative;
+			top: -25px;
+		}
+		.textarea{
+			resize: none;
+			width: 100%;
+			height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="head">
+		<div id="logo">
+			<span>任务五</span>
+		</div>
+		<div id="nav">
+			<ul>
+				<li class="li_1">导航一</li>
+				<li class="li_1">导航二</li>
+				<li class="li_1">导航三</li>
+				<li class="li_1">导航四</li>
+			</ul>
+		</div>
+	</div>
+	<div id="main">
+		<div id="main_left">
+			<div class="content">
+				<h1>一级标题</h1>
+				<h2>二级标题</h2>
+				<h5>作者</h5>
+				<p>1.两种布局的基本构思为：首先让中间层100%宽度占满同一高度的空间，在左右两层被挤出中间层所在区域时， 使用margin-left的负值将左右两个层拉回与中间层同一高度的空间，接下来调整左右两层到指定位置， 最后使用中间层的margin或padding属性使中间层的内容躲出左右两层占住的显示区。
+				2.两种布局的主要区别在于：圣杯布局采用一个父层包含中间、左右三个子层，设置父层的padding值腾出左右两层的显示区， 并对左右两层使用relative和left、right值调整位置；双飞翼采用中间、左右三层并列，再在中间层里设置一个子层， 设置中间层子层的margin值腾出左右两层的显示区，对左右两层使用margin值即可调整位置；</p>
+				<img src="img/1.jpg">
+				<p>1.两种布局的基本构思为：首先让中间层100%宽度占满同一高度的空间，在左右两层被挤出中间层所在区域时， 使用margin-left的负值将左右两个层拉回与中间层同一高度的空间，接下来调整左右两层到指定位置， 最后使用中间层的margin或padding属性使中间层的内容躲出左右两层占住的显示区。
+				2.两种布局的主要区别在于：圣杯布局采用一个父层包含中间、左右三个子层，设置父层的padding值腾出左右两层的显示区， 并对左右两层使用relative和left、right值调整位置；双飞翼采用中间、左右三层并列，再在中间层里设置一个子层， 设置中间层子层的margin值腾出左右两层的显示区，对左右两层使用margin值即可调整位置；</p>
+			</div>
+			<div class="content">
+				<h1>一级标题</h1>
+				<h2>二级标题</h2>
+				<h5>作者</h5>
+				<p>1.两种布局的基本构思为：首先让中间层100%宽度占满同一高度的空间，在左右两层被挤出中间层所在区域时， 使用margin-left的负值将左右两个层拉回与中间层同一高度的空间，接下来调整左右两层到指定位置， 最后使用中间层的margin或padding属性使中间层的内容躲出左右两层占住的显示区。
+				2.两种布局的主要区别在于：圣杯布局采用一个父层包含中间、左右三个子层，设置父层的padding值腾出左右两层的显示区， 并对左右两层使用relative和left、right值调整位置；双飞翼采用中间、左右三层并列，再在中间层里设置一个子层， 设置中间层子层的margin值腾出左右两层的显示区，对左右两层使用margin值即可调整位置；</p>
+				<img src="img/1.jpg">
+				<ul>
+					<li class="li_2">列表项目一</li>
+					<li class="li_2">列表项目二</li>
+					<li class="li_2">列表项目三</li>
+					<li class="li_2">列表项目四</li>
+				</ul>
+			</div>
+			<div class="content">
+				<h1>图片</h1>
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+				<img src="img/1.jpg">
+			</div>
+			<div class="content">
+				<h1>一级标题</h1>
+				<h2>二级标题</h2>
+				<h5>作者</h5>
+				<ol>
+					<li>第一名</li>
+					<li>第二名</li>
+					<li>第三名</li>
+					<li>第四名</li>
+				</ol>
+				<span>表一</span>
+				<table class="table">
+					<tr class="tr">
+						<th class="th">表头1</th>
+						<th class="th">表头2</th>
+						<th class="th">表头3</th>
+					</tr>
+					<tr class="tr">
+						<th class="th">第1行</th>
+						<th class="th">第1行</th>
+						<th class="th">第1行</th>
+					</tr>
+					<tr class="tr">
+						<th class="th">第2行</th>
+						<th class="th">第2行</th>
+						<th class="th">第2行</th>
+					</tr>
+					<tr class="tr">
+						<th class="th">第3行</th>
+						<th class="th">第3行</th>
+						<th class="th">第3行</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="main_right">
+			<div id="right_title">
+				<span>这是标题</span>
+			</div>
+			<!--<form>
+				用户名：<input type="text" name="user" value="这是一个文本输入框">
+			</form>-->
+			
+			<table>
+				<tr>
+					<th class="input_1">用户名:</th>
+					<th class="input_2"><input type="text" name="user" value="这是一个文本输入框"></th>
+				</tr>
+				<tr>
+					<th></th>
+					<th class="input_2 span_1"><span>请按照格式输入邮箱地址</span></th>
+				</tr>
+				<tr>
+					<th class="input_1">密&nbsp;&nbsp;&nbsp;&nbsp;码:</th>
+					<th class="input_2"><input type="password" name="password"></th>
+				</tr>
+				<tr>
+					<th class="input_1">确认密码:</th>
+					<th class="input_2"><input type="password" name="password"></th>
+				</tr>
+				<tr>
+					<th></th>
+					<th class="input_2 span_1"><span>密码为6-16个数字、字母组成</span></th>
+				</tr>
+				<br>
+				<tr>
+					<th class="input_1">性别:</th>
+					<th class="input_2">
+						<form>
+							<input type="radio" name="sex" checked>男
+							<input type="radio" name="sex">女
+						</form>
+					</th>
+				</tr>
+				<tr>
+					<th class="input_1">城市:</th>
+					<th class="input_2">
+						<form>
+							<select name="city" class="input_3">
+							<option value="北京">北京</option>
+							<option value="上海">上海</option>
+							<option value="广州">广州</option>
+							<option value="深圳">深圳</option>
+							</select>
+						</form>
+					</th>
+				</tr>
+				<tr>
+					<th class="input_1">爱好:</th>
+					<th class="input_2">
+						<form>
+							<input type="checkbox">电竞
+							<input type="checkbox">看书
+							<input type="checkbox">电影
+						</form>
+					</th>
+				</tr>
+				<tr>
+					<th class="input_4" id="th_1">签名:</th>
+					<th class="input_2">
+						<textarea class="textarea">sdfdsf</textarea>
+					</th>
+				</tr>
+			</table>
+			<input type="submit" value="提交" class="input_5">
+		</div>
+		<div id="clear"></div>
+	</div>
+	<div id="foot">
+		<span>版权所有©</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务六：通过HTML及CSS模拟报纸排版</title>
+	<style>
+		body{
+			width: 980px;
+			height: 1386px;
+			background-color: #FFFFFF;
+			border: 1px solid #eee;
+			margin: auto;
+			padding:0 44px 0 44px;
+			box-sizing: border-box;
+		}
+		div{
+			box-sizing: border-box;
+		}
+		#head{
+			width: 892px;
+			height: 63px;
+			border-bottom: 2px solid #938e8c;
+		}
+		#logo{
+			width: 110px;
+			height: 61px;
+			background-color: #d45d4c;
+			font-family: SimHei;
+			font-size: 12px;
+			text-indent: 5px;
+			padding: 45px 0 0 0;
+			color: #ffffff;
+			float: left;
+		}
+		#date{
+			float: right;
+			font-size: 12px;
+			color: #d45d4c;
+			padding: 45px 0 0 0;
+			font-family: SimHei;
+		}
+		#main_1{
+			width: 892px;
+			height: 301px;
+			margin-top: 25px;
+			border: 1px solid #eee;
+		}
+		#main_1_left{
+			width: 641px;
+			height: 301px;
+			border: 1px solid #eee;
+			background-image:url(img1.jpg);
+			float: left;
+		}
+		#main_1_left_green{
+			width:191px;
+			height: 301px;
+			border: 1px solid #eee;
+			float: left;
+			background-color: green;
+			opacity: 0.3;
+		}
+		#main_1_left_red{
+			width:191px;
+			height: 301px;
+			border: 1px solid #eee;
+			float: right;
+			background-color: red;
+			opacity: 0.3;
+		}
+		#main_1_right{
+			width: 203px;
+			height: 301px;
+			float: right;
+			border: 1px solid #eee;
+			border-top: 2px solid #cc8091;
+			position: relative;
+			overflow: hidden;
+		}
+		.p_1{
+			text-transform: uppercase;
+			font-size: 20px;
+			color: #000000;
+			font-family: Microsoft YaHei;
+			line-height: 10px;
+			/*text-decoration: underline;*/
+		}
+		.p_2{
+			font-size: 12px;
+			line-height: 10px;
+			color: #676767;
+			font-family: KaiTi;
+		}
+		.p_3{
+			font-size: 116px;
+			color: #75b86b;
+			font-family: Microsoft YaHei;
+			font-style: italic;
+			position: relative;
+			left: -20px;
+			top:-120px;
+		}
+		.p_f:first-letter{
+			font-size: 24px;
+		}
+		.p_underline{
+			border-bottom: 2px solid #000000;
+		}
+		.css_1{
+			font-size: 55px;
+			color: #cc8091;
+			font-family: Microsoft YaHei;
+			position: absolute;
+			bottom: -67px;
+			left: 0;
+		}
+		.css_2{
+			position: absolute;
+			bottom: 0;
+			left: 80px;
+			overflow: hidden;
+		}
+		.css_2_1{
+			font-size: 21px;
+			color: #cc8091;
+			font-family: Microsoft YaHei;
+			line-height: 20px;
+		}
+		.css_2_2{
+			font-size: 12px;
+			color: #cc8091;
+			font-family: Microsoft YaHei;
+			line-height: 10px;
+			overflow: hidden;
+		}
+		#main_2{
+			width: 892px;
+			margin-top: 25px;
+			border: 1px solid #eee;
+		}
+		#main_2_1{
+			width: 270px;
+			margin-right: 40px;
+			border: 1px solid #eee;
+			float: left;
+		}
+		#main_2_2{
+			width: 270px;
+			margin-right: 40px;
+			border: 1px solid #eee;
+			float: left;
+		}
+		#main_2_3{
+			width: 270px;
+			border: 1px solid #eee;
+			float: left;
+		}
+		.p_what,.p_when,.p_how{
+			font-size: 16px;
+			font-family: Microsoft YaHei;
+			text-decoration: underline;
+		}
+		.p_what{
+			/*font-size: 16px;*/
+			color: #418c95;
+			/*font-family: Microsoft YaHei;
+			text-decoration: underline;*/
+		}
+		.p_when{
+			/*font-size: 16px;*/
+			color: #d2994f;
+			/*font-family: Microsoft YaHei;
+			text-decoration: underline;*/
+		}
+		.p_how{
+			/*font-size: 16px;*/
+			color: #cc7680;
+			/*font-family: Microsoft YaHei;
+			text-decoration: underline;*/
+		}
+		.text{
+			font-size: 12px;
+			line-height: 16px;
+		}
+		.text_1{
+			font-family: SimSun;
+			color: #767777;
+		}
+		.text_2{
+			font-family: Microsoft YaHei;
+			color: #231815;
+			opacity: 0.7;
+		}
+		.text_3{
+			font-family: Microsoft YaHei;
+			color: #cd4a48;
+			opacity: 0.7;
+			font-style: italic;
+		}
+		.list_1{
+			list-style-type:none;
+		}
+		.clear{
+			clear: both;
+		}
+		#main_3{
+			width: 892px;
+			margin-top: 25px;
+			border: 1px solid #eee;
+		}
+		#main_3_left{
+			width: 415px;
+			height: 670px;
+			border: 1px solid #eee;
+			float: left;
+			overflow: hidden;
+		}
+		#main_3_left_1{
+			width: 100%;
+			text-transform: uppercase;
+			border-bottom: 2px solid #11456b;
+		}
+		.span_1{
+			font-size: 72px;
+			color: #f5e327;
+			font-family: SimHei;
+			font-weight: bold;
+			font-style: italic;
+		}
+		.span_2{
+			font-size: 42px;
+			color: #11456b;
+			font-family: SimHei;
+			font-weight: bold;
+			line-height: 16px;
+		}
+		.span_3{
+			font-size: 33px;
+			color: #11456b;
+			font-family: SimHei;
+			font-weight: bold;
+			line-height: 60px;
+		}
+		#main_3_left_2{
+			width: 100%;
+			margin-top: 30px;
+			/*position: relative;*/
+			border: 1px solid #eee;
+		}
+		.main_3_left_2_img{
+			width: 180px;
+			height: 300px;
+			border: 1px solid #eee;
+			float: right;
+			/*position: absolute;
+			right: 0;
+			top: 100px;*/
+			margin: 20px 5px 20px 20px;
+		}
+		.text_indent{
+			text-indent: 2em;
+		}
+		.text_4{
+			font-size: 12px;
+			font-family: SimSun;
+			color: #767777;
+			line-height: 16px;
+		}
+		.text_big{
+			font-size: 70px;
+			color: #f5e327;
+			font-family: Microsoft YaHei;
+			float: left;
+		}
+		#main_3_right{
+			width: 458px;
+			margin-left: 17px;
+			float: left;
+			border: 1px solid #eee;
+		}
+		#main_3_right_1{
+			width: 458px;
+			height: 275px;
+			border: 1px solid #eee;
+			position: relative;
+		}
+		#main_3_right_1_1{
+			width: 458px;
+			height: 61px;
+			background-color: #000000;
+			opacity: 0.3;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		#main_3_right_1_1_1{
+			height: 44px;
+			margin: 10px 0 0 40px;
+			border-left: 3px solid #00A12E;
+		}
+		.span_4{
+			font-size: 26px;
+			color: #ffffff;
+			font-family: Microsoft YaHei;
+			margin-left: 15px;
+			line-height: 44px;
+		}
+		.span_5{
+			font-size: 12px;
+			color: #00A12E;
+			font-family: Microsoft YaHei;
+			margin: 18px 0 0 5px;
+			font-style: italic;
+		}
+		#main_3_right_2{
+			width: 459px;
+			height: 364px;
+			border: 1px solid #eee;
+			margin-top: 30px;
+			background-color: antiquewhite;
+		}
+		#main_3_right_2_1{
+			width: 459px;
+			height: 204px;
+			border: 1px solid #eee;
+			overflow: hidden;
+		}
+		#main_3_right_2_2{
+			width: 459px;
+			height: 160px;
+			border: 1px solid #eee;
+		}
+		#main_3_right_2_2_left{
+			width: 260px;
+			height: 160px;
+			border: 1px solid #eee;
+			float: left;
+			background-color: #d45d5c;
+			overflow: hidden;
+		}
+		#main_3_right_2_2_right{
+			width: 177px;
+			height: 150px;
+			border: 1px solid #eee;
+			float: left;
+			position: relative;
+			margin: 10px 0 0 20px;
+			overflow: hidden;
+		}
+		.text_5{
+			height: 86px;
+			width: 70px;
+			color: #ffffff;
+			font-size: 110px;
+			font-family: Microsoft YaHei;
+			margin: 37px 0 0 10px;
+			line-height: 86px;
+			border-right: 2px solid #ffffff;
+			float: left;
+		}
+		.text_6{
+			height: 86px;
+			width: 165px;;
+			color: #ffffff;
+			font-family: SimHei;
+			margin: 37px 0 0 10px;
+			float: left;
+		}
+		.text_6_1{
+			font-size: 21px;
+			font-style: italic;
+			text-transform: uppercase;
+			line-height: 24px;
+			overflow: hidden;
+		}
+		.text_6_2{
+			font-size: 12px;
+			line-height: 6px;
+		}
+		.text_7_1{
+			color: #d45d5c;
+			font-family: SimHei;
+			font-size: 72px;
+			line-height: 14px;
+			position: absolute;
+			top: 20px;
+			left: -40px;
+		}
+		.text_7_2{
+			color: #d45d5c;
+			font-family: SimHei;
+			font-size: 14px;
+			line-height: 16px;
+			
+		}
+		.text_7_3{
+			color: #d45d5c;
+			font-family: SimHei;
+			font-size: 72px;
+			line-height: 14px;
+			position: absolute;
+			bottom: 0px;
+			right: -20px;
+		}
+		.list_2{
+			list-style-type:none;
+			background-image: url(img4.png);
+			background-repeat: no-repeat;
+			padding-left: 20px;
+		}
+		.list_2_1{
+			font-size: 16px;
+			font-family: SimSun;
+			line-height: 20px;
+			color: #5a5b5b;
+		}
+		.list_2_2{
+			font-size: 12px;
+			font-family: SimSun;
+			line-height: 20px;
+			color: #5a5b5b;
+			font-style: italic;
+		}
+		#foot{
+			wdith: 892px;
+			height: 50px;
+			border-top: 1px solid #938e8c;
+			margin-top: 30px;
+			text-align: right;
+			color: #d45d5c;
+			font-size: 12px;
+			font-family: SimHei;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="head">
+		<div id="logo"><span>baidu.com</span></div>
+		<div id="date"><span>2017.12</span></div>
+	</div>
+	<div id="main_1">
+		<div id="main_1_left">
+			<div id="main_1_left_green"></div>
+			<div id="main_1_left_red"></div>
+		</div>
+		<div id="main_1_right">
+			<p class="p_1 p_f"><span class="p_underline">about</span></p>
+			<p class="p_1 p_f"><span class="p_underline">technologe</span></p>
+			<p class="p_2">technologe technologe technologe technologe</p>
+			<p class="p_3">700</p>
+			<div>
+				<div class="css_1"><p>3.2</p></div>
+				<div class="css_2">
+					<span class="css_2_1">CSS</span><br>
+					<span class="css_2_2">CSS CSS CSS CSS</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="main_2">
+		<div id="main_2_1">
+			<p class="p_what"><strong>What</strong></p>
+			<p class="text text_1">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+		</div>
+		<div id="main_2_2">
+			<p class="p_when"><strong>When</strong></p>
+			<p class="text text_2">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+		</div>
+		<div id="main_2_3">
+			<p class="p_how"><strong>How</strong></p>
+			<p class="text text_3">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+			<ul class="list_1">
+				<li><span class="text_1">What</span>-------<span class="text_3">30%</span></li>
+				<li><span class="text_1">When</span>-------<span class="text_3">20%</span></li>
+				<li><span class="text_1">How</span>--------<span class="text_3">50%</span></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="main_3">
+		<div id="main_3_left">
+			<div id="main_3_left_1">
+				<span class="span_1">the</span><span class="span_2"> front-end technology</span><br>
+				<span class="span_3">前端技术领域</span>
+			</div>
+			<div id="main_3_left_2">
+				<span class="text_big">前</span><p class="text_4">端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端<img src="img2.jpg" class="main_3_left_2_img">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前</p>
+				<p class="text_indent text_4">端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前前端前端</p>
+				<p class="text_indent text_4">前端前端前端前端前端前前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前前端前端前端前端前端前端前前端前端前端前端前端前端前前端前端前端前端前端前端前前端前端前端前端前端前端前前端前端前端前端前端前端前前端前端前端前端前端前端前前端前端前端前端前端前端前端前端</p>
+			</div>
+		</div>
+		<div id="main_3_right">
+			<div id="main_3_right_1">
+				<img src="img3.jpg">
+				<div id="main_3_right_1_1">
+					<div id="main_3_right_1_1_1">
+						<span class="span_4">前端技术</span>
+						<span class="span_5">前端技术前端技术</span>
+					</div>
+				</div>
+			</div>
+			<div id="main_3_right_2">
+				<div id="main_3_right_2_1">
+					<ul><br>
+						<p><li class="list_2"><span class="list_2_1">前端技术</span>---------------------------------------<span class="list_2_2">前端</span></li></p>
+						<p><li class="list_2"><span class="list_2_1">前端技术</span>---------------------------------------<span class="list_2_2">前端</span></li></p>
+						<p><li class="list_2"><span class="list_2_1">前端技术</span>---------------------------------------<span class="list_2_2">前端</span></li></p>
+					</ul>
+				</div>
+				<div id="main_3_right_2_2">
+					<div id="main_3_right_2_2_left">
+						<div class="text_5">0</div>
+						<div class="text_6">
+							<span class="text_6_1">one two three fore five</span><br>
+							<span class="text_6_2">hello world hello world hello world</span>
+						</div>
+					</div>
+					<div id="main_3_right_2_2_right">
+						<span class="text_7_1">“</span><span class="text_7_2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world</span><span class="text_7_3">”</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="foot">baidu.com</div>
+</body>
+</html>

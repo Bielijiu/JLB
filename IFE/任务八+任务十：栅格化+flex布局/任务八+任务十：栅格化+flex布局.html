@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>任务八+任务十：栅格化+flex布局</title>
+	<style>
+		.container *{
+			box-sizing: border-box;
+		}
+		.row:before,.row:after{
+			content:"";/*row前后内容为空*/
+			display: table;/*此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符。*/
+			clear: both;/*清楚浮动*/
+		}
+		.container{
+			padding: 10px;
+		}
+		[class*="col_"]{
+			min-height: 1px;
+			float: left;
+			padding: 10px;
+			/*border: 1px solid #999;*/
+		}
+		@media all and (min-width:768px){
+			.col_1{width: 8.33%;}
+			.col_2{width: 16.66%;}
+			.col_3{width: 25%;}
+			.col_4{width: 33.33%;}
+			.col_5{width: 41.66%;}
+			.col_6{width: 50%;}
+			.col_7{width: 58.33%;}
+			.col_8{width: 66.66%;}
+			.col_9{width: 75%;}
+			.col_10{width: 83.33%;}
+			.col_11{width: 91.66%;}
+			.col_12{width: 100%;}
+		}
+		@media all and (max-width:768px){
+			.col_1{width: 16.66%;}
+			.col_2{width: 25%;order: 1;}
+			.col_3{width: 25%;}
+			.col_4{width: 50%;}
+			.col_5{width: 41.66%;}
+			.col_6{width: 50%;}
+			.col_7{width: 58.33%;}
+			.col_8{width: 66.66%;}
+			.col_9{width: 75%;}
+			.col_10{width: 83.33%;}
+			.col_11{width: 91.66%;}
+			.col_12{width: 100%;}
+			
+			/*当类“col_4”位于父元素中的最后一个元素时，将其宽度扩展为100%*/
+			.row .col_4:last-of-type{
+				width: 100%;
+			}
+			.row .col_6:last-of-type{
+				width: 66.66%;
+			}
+		}
+		.span{
+			width: 100%;
+			height: 50px;
+			background-color: #eee;
+			border: 1px solid #999;
+		}
+		.flex{
+			display: flex;
+			display : -webkit-flex;
+			/*flex-direction: row;
+			flex-wrap: wrap;
+			这两个属性可以缩写为 flex-flow: row wrap;*/
+			flex-flow: row wrap;
+			justify-content: flex-start;/*定义了项目在主轴上的对齐方式从左开始*/
+			align-items: flex-start;/*定义项目在交叉轴上如何对齐，从顶部开始*/
+			
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col_4"><div class="span">1</div></div>
+			<div class="col_4"><div class="span">2</div></div>
+			<div class="col_4"><div class="span">3</div></div>
+		</div>
+		<div class="row">
+			<div class="col_3"><div class="span">4</div></div>
+			<div class="col_6"><div class="span">5</div></div>
+			<div class="col_3"><div class="span">6</div></div>
+		</div>
+		<div class="row flex">
+			<div class="col_1"><div class="span">7</div></div>
+			<div class="col_1"><div class="span">8</div></div>
+			<div class="col_2"><div class="span">9</div></div>
+			<div class="col_2"><div class="span">10</div></div>
+			<div class="col_6"><div class="span">11</div></div>
+		</div>
+	</div>
+</body>
+</html>

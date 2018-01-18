@@ -67,10 +67,17 @@ function getData() {
 
 
 
-function sortAqiData(data){
-  data.sort(function(a,b){
+function sortAqiData(a,b){
     return a[1]-b[1];
-  });
+  }
+  
+function render(data) {
+  for(var i=0;i<data.length;i++){
+    var resort = document.getElementById("resort");
+    var li = document.createElement("li");
+    li.innerHTML = "第" + (i+1) + "名：" + data[i][0] + "空气质量：<b>" + data[i][1] + "<b>";
+    resort.appendChild(li);
+  }
 }
   /*console.log(Data);
 }*/
@@ -81,10 +88,20 @@ function sortAqiData(data){
  */
 function btnHandle(){
   var aqiData = getData();
-  aqiData = sortAqiData(aqiData);
-  console.log(aqiData);
+  /*aqiData = sortAqiData(aqiData);*/
+  aqiData = aqiData.sort(sortAqiData);
+  render(aqiData);
 }
-btnHandle();
+
+function init() {
+
+  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+  btn = document.getElementById("sort-btn");
+  btn.onclick = btnHandle;
+
+}
+
+init();
 </script>
 </body>
 </html>

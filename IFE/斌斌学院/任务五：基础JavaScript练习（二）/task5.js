@@ -62,10 +62,8 @@ function leftout(){
 	for(var i=0;i<divList.length;i++){
 		heightList.push(divList[i].offsetHeight);
 	}
-	console.log(heightList);
  	var Sort2 = selectionSort(heightList);
  	var len = Sort2.length;
- 	console.log(len);
  	if(Sort2.length == 0){
  		alert("参数为空");
  		return false;

@@ -6,6 +6,7 @@ var rightOut = document.getElementById("rightout");
 var arrSort = document.getElementById("arrsort");
 var div = document.getElementById("div");
 
+
 function rightin(){
 	if(input.value == ""){
 		alert("请输入一个数字");
@@ -17,7 +18,7 @@ function rightin(){
 			txt.style.height = input.value + "px";
 			document.getElementById("input").value = "";
 		}else{
-			alert("输入范围：10-60");
+			alert("输入范围：10-100");
 		}
 	}else{
 		alert("请输入数字！")
@@ -35,7 +36,7 @@ function leftin(){
 			txt.style.height = input.value + "px";
 			document.getElementById("input").value = "";
 		}else{
-			alert("输入范围：10-60");
+			alert("输入范围：10-100");
 		}
 		
 	}else{
@@ -56,8 +57,15 @@ function leftout(){
 }
 
  function Sort1(){
- 	var Sort2 = selectionSort();
+ 	var divList = div.getElementsByTagName("div");
+	var heightList = new Array();
+	for(var i=0;i<divList.length;i++){
+		heightList.push(divList[i].offsetHeight);
+	}
+	console.log(heightList);
+ 	var Sort2 = selectionSort(heightList);
  	var len = Sort2.length;
+ 	console.log(len);
  	if(Sort2.length == 0){
  		alert("参数为空");
  		return false;
@@ -70,29 +78,25 @@ function leftout(){
 			txt.style.height = Sort2[i] + "px";
 		}
  	}
- 	function selectionSort(){
-		var divList = div.getElementsByTagName("div");
-		var heightList = new Array();
-	   
-		for(var i=0;i<divList.length;i++){
-		   	heightList.push(divList[i].offsetHeight);
-		}
-	  	var len = heightList.length;
-	    var minIndex, temp;
-	    for (var i = 0; i < len - 1; i++) {
-	        minIndex = i;
-	        for (var j = i + 1; j < len; j++) {
-	            if (heightList[j] < heightList[minIndex]) {     //寻找最小的数
-	                minIndex = j;                 //将最小数的索引保存
-	            }
-	        }
-	        temp = heightList[i];
-	        heightList[i] = heightList[minIndex];
-	        heightList[minIndex] = temp;
-	    }
-	    return heightList;
-	}
     }
+
+ function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    for (var i = 0; i < len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {     //寻找最小的数
+                minIndex = j;                 //将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+
 function init() {
   	leftIn.onclick = leftin;
   	rightIn.onclick = rightin;
